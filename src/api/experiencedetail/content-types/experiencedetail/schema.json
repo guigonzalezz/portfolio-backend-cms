@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "experiencedetails",
+  "info": {
+    "singularName": "experiencedetail",
+    "pluralName": "experiencedetails",
+    "displayName": "experiencedetail"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "whenstarted": {
+      "type": "date",
+      "required": true
+    },
+    "whenended": {
+      "type": "date"
+    },
+    "description": {
+      "type": "text",
+      "required": false
+    },
+    "experience": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::experience.experience",
+      "inversedBy": "experiencedetails"
+    }
+  }
+}
