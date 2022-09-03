@@ -1,5 +1,33 @@
 module.exports = ({ env }) => ({
   // ...
+  redis: {
+    config: {
+      connections: {
+        default: {
+          connection: env('REDIS_URL')
+        },
+      },
+    },
+  },
+  "rest-cache": {
+    config: {
+      provider: { name: "redis" },
+      strategy: {
+        contentTypes: [
+          { contentType: "api::about.about", hitpass: false },
+          { contentType: "api::certification.certification", hitpass: false },
+          { contentType: "api::education.education", hitpass: false },
+          { contentType: "api::experience.experience", hitpass: false },
+          { contentType: "api::experiencedetail.experiencedetail", hitpass: false },
+          { contentType: "api::language.language", hitpass: false },
+          { contentType: "api::media.media", hitpass: false },
+          { contentType: "api::project.project", hitpass: false },
+          { contentType: "api::skill.skill", hitpass: false },
+        ],
+        debug: true,
+      },
+    },
+  },
   upload: {
     config: {
       provider: 'cloudinary',
